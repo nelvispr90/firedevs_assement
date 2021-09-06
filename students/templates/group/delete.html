@@ -1,0 +1,30 @@
+{% extends "main.html" %} {% block main %}
+{{form.errors}}
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <form class="card px-2 py-2 mt-2" action={% url "group_delete" group.id %} method="POST" novalidate>
+      {% csrf_token %}
+      <div class="form-row">
+        <div class="form-group col-md mb-2">
+          <label for="id_name">Name</label>   
+          <input type="text" class="form-control" name="name" value="{% if group %}{{group.name}}{% endif %}" id="id_name" disabled>        
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md mb-2">
+          <label for="id_professor_guide">Age</label>
+          <input type="text" class="form-control" name="professor_guide" value="{% if group %}{{group.professor_guide}}{% endif %}" id="id_professor_guide" disabled>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input class="btn btn-danger" type="submit" value="Confirm Delete" />
+          {% comment %} <a class="btn btn-danger" href={% url "partial_delete" group.id %}>Confirm Delete</a> {% endcomment %}
+          {% comment %} <a class="btn btn-success" href={% url "edit" group.id %}>Edit</a> {% endcomment %}
+          <a class="btn btn-primary" href={% url "group_new" %}>New</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

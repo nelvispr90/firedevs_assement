@@ -1,0 +1,9 @@
+{% load log %} {% get_admin_log 10 as admin_log for_user user %}
+    <h5>Recent Actions <small>by {{user}}</small></h5>
+    {% for entry in admin_log %}
+        <div class="row mt-2">
+            <div class="col">            
+                <small>{{entry}} </small>
+            </div>
+        </div>      
+    {% endfor %}

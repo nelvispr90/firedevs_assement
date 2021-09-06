@@ -1,0 +1,49 @@
+{% extends "main.html" %} {% block main %}
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <div class="card px-2 py-2 mt-2 ">
+      <div class="form-row">
+        <div class="form-group col-md mb-2">
+          <label for="id_name">Name</label>   
+          <input type="text" class="form-control" name="name" value="{{student.name}}" id="id_name" disabled>        
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2 mb-2">
+          <label for="id_age">Age</label>
+          <input type="text" class="form-control" name="age" value="{{student.age}}" id="id_age" disabled>
+        </div>
+        <div class="form-group col-md-3 mb-2">
+          <label for="id_gender">Gender</label>
+          <input type="text" class="form-control" name="gender" value="{{student.gender}}" id="id_gender" disabled>
+        </div>
+        <div class="form-group col-md-7 mb-2">
+          <label for="id_email">Email</label>
+          <input type="text" class="form-control" name="email" value="{{student.email}}" id="id_email" disabled>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4 mb-2">
+          <label for="id_city_address">City Address</label>
+          <input type="text" class="form-control" name="city_address" value="{{student.city_address}}" id="id_city_address" disabled>
+        </div>
+        <div class="form-group col-md-5 mb-2">
+          <label for="id_birth_date">Birthday Date</label>
+          <input type="text" class="form-control" name="birth_date" value="{{student.birth_date}}" id="id_birth_date" disabled>
+        </div>
+        <div class="form-group col-md-3 mb-2">
+          <label for="id_group">Group</label>
+          <input type="text" class="form-control" name="group" value="{{student.group}}" id="id_group" disabled>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <a class="btn btn-success" href={% url "student_edit" student.id %}>Edit</a>
+          <a class="btn btn-danger" href={% url "student_partial_delete" student.id %}>Delete</a>
+          <a class="btn btn-primary" href={% url "student_new" %}>New</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

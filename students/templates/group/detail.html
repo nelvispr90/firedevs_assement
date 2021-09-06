@@ -1,0 +1,27 @@
+{% extends "main.html" %} {% block main %}
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <div class="card px-2 py-2 mt-2 ">
+      <div class="form-row">
+        <div class="form-group col-md mb-2">
+          <label for="id_name">Name</label>   
+          <input type="text" class="form-control" name="name" value="{{group.name}}" id="id_name" disabled>        
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md mb-2">
+          <label for="id_age">Professor Guide</label>
+          <input type="text" class="form-control" name="age" value="{{group.professor_guide}}" id="id_age" disabled>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <a class="btn btn-success" href={% url "group_edit" group.id %}>Edit</a>
+          <a class="btn btn-danger" href={% url "group_partial_delete" group.id %}>Delete</a>
+          <a class="btn btn-primary" href={% url "group_new" %}>New</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

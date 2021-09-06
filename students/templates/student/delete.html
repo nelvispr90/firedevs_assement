@@ -1,0 +1,50 @@
+{% extends "main.html" %} {% block main %}
+{{form.errors}}
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <form class="card px-2 py-2 mt-2" action={% url "student_delete" student.id %} method="POST" novalidate>
+      {% csrf_token %}
+      <div class="form-row">
+        <div class="form-group col-md mb-2">
+          <label for="id_name">Name</label>   
+          <input type="text" class="form-control" name="name" value="{% if student %}{{student.name}}{% endif %}" id="id_name" placeholder="Jhon Doe" disabled>        
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2 mb-2">
+          <label for="id_age">Age</label>
+          <input type="text" class="form-control" name="age" value="{% if student %}{{student.age}}{% endif %}" id="id_age" disabled>
+        </div>
+        <div class="form-group col-md-3 mb-2">
+          <label for="id_gender">Gender</label>
+          <input type="text" class="form-control" name="gender" value="{% if student %}{{student.gender}}{% endif %}" id="id_gender" disabled>
+        </div>
+        <div class="form-group col-md-7 mb-2">
+          <label for="id_email">Email</label>
+          <input type="text" class="form-control" name="email" value="{% if student %}{{student.email}}{% endif %}" id="id_email" disabled>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4 mb-2">
+          <label for="id_city_address">City Address</label>
+          <input type="text" class="form-control" name="city_address" value="{% if student %}{{student.city_address}}{% endif %}" id="id_city_address" disabled>
+        </div>
+        <div class="form-group col-md-5 mb-2">
+          <label for="id_birth_date">Birthday Date</label>
+          <input type="text" class="form-control" name="birth_date" value="{% if student %}{{student.birth_date}}{% endif %}" id="id_birth_date" disabled>
+        </div>
+        <div class="form-group col-md-3 mb-2">
+          <label for="id_group">Group</label>
+          <input type="text" class="form-control" name="group" value="{% if student %}{{student.group}}{% endif %}" id="id_group" disabled>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input class="btn btn-danger" type="submit" value="Confirm Delete" />
+          <a class="btn btn-primary" href={% url "student_new" %}>New</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

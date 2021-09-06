@@ -1,0 +1,26 @@
+/* #map {
+    height: 95%;
+    border: 1px solid #888;
+}
+
+#map-region {
+    padding-left: 0 !important;
+    padding-right: 0;
+} */
+
+/* .brand {
+  background: url("../img/firedevs.png") no-repeat center top;
+  background-size: contain;
+} */
+.logo-img {
+    height: 45px;
+    width: 45px;
+    display: inline-block;
+    vertical-align: middle;
+    background: url("../img/firedevs.png") no-repeat center center;
+    background-size: contain;
+  }
+
+  body {
+    background-color: #f5f5f5;
+  }  
