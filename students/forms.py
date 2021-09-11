@@ -32,7 +32,7 @@ class StudentForm(ModelForm):
             'age': NumberInput(attrs={'class':'form-control', 'min':5,'max':100}),
             'gender': Select(attrs={'class':'form-control'}),
             'email': EmailInput(attrs={'class':'form-control'}),
-            'city_address': Select(attrs={'class':'form-control'}),
+            'city': Select(attrs={'class':'form-control'}),
             'birth_date': DateInput(attrs={'type': 'date', 'class':'form-control'}),
             'group': Select(attrs={'class':'form-control'}),
         }

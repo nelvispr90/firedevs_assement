@@ -22,7 +22,7 @@
           {% for group in page_obj %}
           <tr>
             <th scope="row">{{group.pk}}</th>
-            <td>{{group.name}}</td>
+            <td>{{group}}</td>
             <td>{{group.professor_guide}}</td>
             <td>
               <a class="btn btn-secondary" href={% url "group_detail" group.pk %}>Detail</a>
