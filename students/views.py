@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from students.forms import StudentForm, GroupForm
-from .models import Student, Group
+from .models import Student, StudentGroup
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 
 # Create your views here.
-def index(request):
-    return render(request, 'main.html')
+def home(request):
+    return render(request, 'home.html')
 
 # Group views
 @login_required
@@ -15,9 +15,9 @@ def list_groups(request):
     # groups
     if request.GET.get('something'):
         search_text = request.GET.get('something')
-        groups = Group.objects.filter(name__contains=search_text).order_by('id')
+        groups = StudentGroup.objects.filter(name__contains=search_text).order_by('id')
     else:
-        groups = Group.objects.order_by('id')
+        groups = StudentGroup.objects.order_by('id')
     
     paginator = Paginator(groups, 40) # Show 40 students per page.
     page_number = request.GET.get('page')
@@ -46,7 +46,7 @@ def create_group(request):
 @login_required
 def update_group(request, id):
     message = None
-    group = Group.objects.filter(pk = id)[0]
+    group = StudentGroup.objects.filter(pk = id)[0]
     
     if request.method == 'POST':
         data = request.POST                
@@ -61,12 +61,12 @@ def update_group(request, id):
 
 @login_required
 def detail_group(request, id):
-    group = Group.objects.filter(pk=id)[0]
+    group = StudentGroup.objects.filter(pk=id)[0]
     return render(request,'group/detail.html', {'group': group})
 
 @login_required
 def partial_delete_group(request, id):
-    qs = Group.objects.filter(pk=id)
+    qs = StudentGroup.objects.filter(pk=id)
     
     if len(qs) > 0 :
         group = qs[0]          
@@ -76,7 +76,7 @@ def partial_delete_group(request, id):
     
 @login_required
 def delete_group(request, id):
-    group = Group.objects.filter(pk=id)[0]  
+    group = StudentGroup.objects.filter(pk=id)[0]  
     group.delete()    
     return HttpResponseRedirect('/students/student/new')
 

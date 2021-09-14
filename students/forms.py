@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm, DateInput, TextInput, NumberInput, Select, EmailInput
 # from django.forms import modelform_factory, fields_for_model
-from .models import Group, Student
+from .models import StudentGroup, Student
 from django.core.exceptions import ValidationError
 
 # group_fields=fields_for_model(Group)
@@ -45,7 +45,7 @@ class StudentForm(ModelForm):
     
 class GroupForm(ModelForm):
     class Meta:
-        model = Group
+        model = StudentGroup
         fields = '__all__'
         widgets = {
             'name': TextInput(attrs={'class':'form-control'}),

@@ -7,7 +7,7 @@ Run commandline
 
 # For deploy
 Run commandline
->> python manage.py makemigrations students
+>> python manage.py makemigrations
 >> python manage.py migrate
 >> python manage.py runserver
 
@@ -19,3 +19,8 @@ password: admin
 App site
 username: user
 password: useruser
+
+# Observations
+
+The app this implements with basic auth and audit.
+
